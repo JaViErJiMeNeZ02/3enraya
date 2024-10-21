@@ -1,0 +1,185 @@
+
+body{
+    background-color: antiquewhite;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0;
+    width: 1200px;
+    max-width: 1200px;
+    height: 50%;
+}
+.circulo{
+    border: 1px solid black;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.section{
+    display: grid;
+    width: 900px;
+    max-width: 900px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "0 1 2 3"
+    "4 5 6 7"
+    "8 9 10 11"
+    "12 13 14 15";
+}  
+
+
+
+.h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.caja{
+    width: 296px;
+    height: 180px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.caja0{
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+    grid: 0;
+}
+
+.caja1{
+    
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    grid: 1;
+
+}
+
+.caja2{
+    
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    grid: 2;
+
+}
+
+.caja3{
+    
+    border-bottom: 5px solid black;
+    grid: 3;
+
+}
+
+.caja4{
+    
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    grid: 4;
+
+}
+
+.caja5{
+    
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    grid: 5;
+
+}
+
+.caja6{
+
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    grid: 6;
+
+}
+
+.caja7{
+    
+    border-bottom: 5px solid black;
+    grid: 7;
+
+}
+
+.caja8{
+
+    border-right: 5px solid black;
+    grid: 8;
+
+}
+
+.caja9{
+    
+    border-right: 5px solid black;
+    grid: 9;
+
+}
+
+.caja10{
+    
+    border-right: 5px solid black;
+    grid: 10;
+
+}
+
+.caja11{
+    
+    grid: 11;
+
+}
+
+.caja12{
+    
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    grid: 12;
+
+}
+.caja13{
+
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    grid: 13;
+
+}
+.caja14{
+    
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    grid: 14;
+
+}
+.caja15{
+    
+    border-top: 5px solid black;
+    grid: 15;
+
+}
+
+
+.div_volver{
+    display: flex;
+    margin-top: 100px;
+    padding: 0;
+}
+.volver{
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 40px;
+    border: 1px solid red;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.volver:hover{
+    border: 1px solid rgb(117, 8, 8);
+    background-color: rgb(117, 8, 8);
+
+}
