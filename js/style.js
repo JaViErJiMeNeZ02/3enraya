@@ -9,10 +9,13 @@ let caja5 = document.getElementById("caja5");
 let caja6 = document.getElementById("caja6");
 let caja7 = document.getElementById("caja7");
 let caja8 = document.getElementById("caja8");
+let volver = document.getElementById("volver");
+let ganador = document.getElementById("ganador");
 
 function jugadas(primera, segunda, tercera) {
     if (primera === segunda && segunda === tercera && primera !== "rgba(0, 0, 0, 0)" && primera !== "white") {
-        console.log("¡Ganador con color: " + primera + "!");
+        volver.style.display = "none";
+        ganador.style.display = "flex";
         return;
     }
 }

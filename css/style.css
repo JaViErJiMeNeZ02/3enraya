@@ -23,6 +23,10 @@ body{
 }
 
 
+.containerPrimero{
+    margin-right: 200px;
+}
+
 .circulo{
     border: 1px solid black;
     width: 200px;
@@ -167,4 +171,11 @@ body{
 
 .botonera__a:hover {
     background-color: rgb(219, 81, 81); 
+}
+
+.ganador{
+    display: none;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
 }

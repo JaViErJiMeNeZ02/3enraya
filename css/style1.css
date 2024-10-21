@@ -183,3 +183,9 @@ body{
     background-color: rgb(117, 8, 8);
 
 }
+.ganador{
+    display: none;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}

@@ -1,6 +1,9 @@
 
 
 let section = document.getElementsByClassName("section");
+let volver = document.getElementById("volver");
+let ganador = document.getElementById("ganador");
+
 
 let caja0 = document.getElementById("caja0");
 let caja1 = document.getElementById("caja1");
@@ -20,10 +23,14 @@ let caja14 = document.getElementById("caja14");
 let caja15 = document.getElementById("caja15");
 
 
+
 function jugadas(primera, segunda, tercera, cuarta) {
     if (primera === segunda && segunda === tercera && tercera === cuarta && 
         primera !== "rgba(0, 0, 0, 0)" && primera !== "white") {
-        console.log("¡Ganador con color: " +primera);
+        volver.style.display = "none";
+        ganador.textContent = "HA GANADO EL JUGADOR DE "+primera;
+        ganador.style.display = "flex";
+
         return;
     }
 }
