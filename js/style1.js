@@ -1,5 +1,3 @@
-
-
 let section = document.getElementsByClassName("section");
 let volver = document.getElementById("volver");
 let ganador = document.getElementById("ganador");
@@ -30,7 +28,6 @@ function jugadas(primera, segunda, tercera, cuarta) {
         volver.style.display = "none";
         ganador.textContent = "HA GANADO EL JUGADOR DE "+primera;
         ganador.style.display = "flex";
-
         return;
     }
 }
@@ -63,7 +60,31 @@ section[i].addEventListener("click", (event) => {
 });
 
 
+
+
+function jugadas(primera, segunda, tercera, cuarta) {
+    let clicks;
+        if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
+            primera === segunda && segunda === tercera && tercera === cuarta) {
+    
+            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)") && (tercera = "rgb(255,0,0)") && (cuarta = "rgb(255,0,0)") && turno === 2) {
+                
+                ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";
+    
+            }else{
+                
+                ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
+
+            }
+
+            ganador.style.display = "flex";  
+            return;
+    
+        }
+    }
+
 }
+
 
 function ganar(){
 

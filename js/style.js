@@ -1,5 +1,8 @@
-// Obtén las secciones y las cajas
 let section = document.getElementsByClassName("section");
+let volver = document.getElementById("volver");
+let ganador = document.getElementById("ganador");
+
+
 let caja0 = document.getElementById("caja0");
 let caja1 = document.getElementById("caja1");
 let caja2 = document.getElementById("caja2");
@@ -9,16 +12,8 @@ let caja5 = document.getElementById("caja5");
 let caja6 = document.getElementById("caja6");
 let caja7 = document.getElementById("caja7");
 let caja8 = document.getElementById("caja8");
-let volver = document.getElementById("volver");
-let ganador = document.getElementById("ganador");
 
-function jugadas(primera, segunda, tercera) {
-    if (primera === segunda && segunda === tercera && primera !== "rgba(0, 0, 0, 0)" && primera !== "white") {
-        volver.style.display = "none";
-        ganador.style.display = "flex";
-        return;
-    }
-}
+
 
 let turno = 1;
 
@@ -42,7 +37,33 @@ for (let i = 0; i < section.length; i++) {
             ganar();
         }
     });
+
+
+
+
+function jugadas(primera, segunda, tercera) {
+    let clicks;
+        if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
+            primera === segunda && segunda === tercera) {
+    
+            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)") && (tercera = "rgb(255,0,0)") && turno === 2) {
+                
+                ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";  
+
+            }else{
+                
+                ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
+
+            }
+            
+            ganador.style.display = "flex";  
+            return;
+    
+        }
+    }
+
 }
+
 
 function ganar(){
 
@@ -65,7 +86,8 @@ function ganar(){
     jugadas(color0, color4, color8);
     jugadas(color2, color4, color6);
     
-       
+ 
+
 }
 
     

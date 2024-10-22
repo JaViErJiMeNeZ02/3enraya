@@ -160,6 +160,7 @@ body{
 
 .div_volver{
     display: flex;
+    flex-direction: column;
     margin-top: 100px;
     padding: 0;
 }
@@ -188,4 +189,5 @@ body{
     justify-content: center;
     text-align: center;
     margin: 0 auto;
+    margin-top: 20px;
 }
