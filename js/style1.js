@@ -1,6 +1,7 @@
 let section = document.getElementsByClassName("section");
 let volver = document.getElementById("volver");
 let ganador = document.getElementById("ganador");
+let otra = document.getElementById("otra");
 
 
 let caja0 = document.getElementById("caja0");
@@ -22,67 +23,68 @@ let caja15 = document.getElementById("caja15");
 
 
 
-function jugadas(primera, segunda, tercera, cuarta) {
-    if (primera === segunda && segunda === tercera && tercera === cuarta && 
-        primera !== "rgba(0, 0, 0, 0)" && primera !== "white") {
-        volver.style.display = "none";
-        ganador.textContent = "HA GANADO EL JUGADOR DE "+primera;
-        ganador.style.display = "flex";
-        return;
-    }
-}
 
 
-
+let turno = 1;
+otra.style.display = "none";
 
 for (let i = 0; i < section.length; i++) {
 
-let turno = 1;
-
-section[i].addEventListener("click", (event) => {
-    
-    if (event.target.nodeName === "DIV") {
-        if (event.target.style.backgroundColor !== "" && event.target.style.backgroundColor !== "white") {
-            return;
+    section[i].addEventListener("click", (event) => {
+        
+        if (event.target.nodeName === "DIV") {
+            if (event.target.style.backgroundColor !== "" && event.target.style.backgroundColor !== "white") {
+                return;
+            }
+            if (turno === 1) {
+                event.target.style.backgroundColor = "red";
+                turno = 2;
+            } else if (turno === 2) {
+                event.target.style.backgroundColor = "green";
+                turno = 1;
+            }
         }
-        if (turno === 1) {
-            event.target.style.backgroundColor = "red";
-            turno = 2;
-        } else if (turno === 2) {
-            event.target.style.backgroundColor = "green";
-            turno = 1;
-        }
-    }
 
-    ganar()
+        ganar()
 
 
-});
+    });
 
 
 
 
 function jugadas(primera, segunda, tercera, cuarta) {
-    let clicks;
-        if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
+    let ganar = false;
+
+    if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
             primera === segunda && segunda === tercera && tercera === cuarta) {
     
             if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)") && (tercera = "rgb(255,0,0)") && (cuarta = "rgb(255,0,0)") && turno === 2) {
                 
                 ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";
-    
-            }else{
+                ganar = true;
+
+            }else if(primera = "rgb(0,128,0)" && (segunda = "rgb(0,128,0)")
+                && (tercera = "rgb(0,128,0)") && turno === 1){
                 
                 ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
+                ganar = true;
 
             }
 
             ganador.style.display = "flex";  
-            return;
     
-        }
-    }
+            if (ganar === true) {
+                for (let i = 0; i < section.length; i++) {
+                    section[i].style.display = "none";
+                    otra.style.display = "flex";
 
+                }
+        }
+            return;
+        }
+
+    }
 }
 
 
@@ -119,5 +121,4 @@ function ganar(){
 
        
 }
-
 

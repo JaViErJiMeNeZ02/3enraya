@@ -132,6 +132,7 @@ body{
 .volver{
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,5 +180,11 @@ body{
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 50px;
 }
+
+.activo {
+    background-color: #4CAF50; 
+    color: white; 
+  }
+  

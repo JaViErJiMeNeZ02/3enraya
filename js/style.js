@@ -1,7 +1,7 @@
 let section = document.getElementsByClassName("section");
 let volver = document.getElementById("volver");
 let ganador = document.getElementById("ganador");
-
+let otra = document.getElementById("otra");
 
 let caja0 = document.getElementById("caja0");
 let caja1 = document.getElementById("caja1");
@@ -16,6 +16,7 @@ let caja8 = document.getElementById("caja8");
 
 
 let turno = 1;
+otra.style.display = "none";
 
 for (let i = 0; i < section.length; i++) {
     
@@ -33,35 +34,52 @@ for (let i = 0; i < section.length; i++) {
                 turno = 1;
             }
 
-            
-            ganar();
         }
+
+        ganar();
+
+        
     });
 
 
 
 
 function jugadas(primera, segunda, tercera) {
-    let clicks;
+    let ganar = false;
+
         if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
             primera === segunda && segunda === tercera) {
     
-            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)") && (tercera = "rgb(255,0,0)") && turno === 2) {
+            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)")
+            && (tercera = "rgb(255,0,0)") && turno === 2) {
                 
                 ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";  
+                ganar = true;
 
-            }else{
+            }else if(primera = "rgb(0,128,0)" && (segunda = "rgb(0,128,0)")
+            && (tercera = "rgb(0,128,0)") && turno === 1){
                 
                 ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
+                ganar = true;
 
             }
+
             
             ganador.style.display = "flex";  
-            return;
-    
-        }
-    }
+            
 
+            if (ganar === true) {
+                for (let i = 0; i < section.length; i++) {
+                    section[i].style.display = "none";
+                    otra.style.display = "flex";
+
+                }
+
+        }
+        return;
+
+    }
+}
 }
 
 

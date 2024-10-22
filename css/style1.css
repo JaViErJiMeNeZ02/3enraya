@@ -10,11 +10,7 @@ body{
     max-width: 1200px;
     height: 50%;
 }
-.circulo{
-    border: 1px solid black;
-    width: 200px;
-    border-radius: 50%;
-}
+
 
 .section{
     display: grid;
@@ -36,8 +32,8 @@ body{
 }
 
 .caja{
-    width: 296px;
-    height: 180px;
+    width: 280px;
+    height: 170px;
     margin: 0 auto;
     padding: 0;
 }
@@ -177,6 +173,7 @@ body{
     background-color: red;
     text-decoration: none;
     font-size: 25px;
+    margin-top: 50px;
 }
 
 .volver:hover{
@@ -189,5 +186,6 @@ body{
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 50px;
+
 }
