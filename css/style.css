@@ -22,12 +22,9 @@ body{
     
 }
 
-
 .containerPrimero{
     margin-right: 200px;
 }
-
-
 
 .section{
     display: grid;
@@ -39,8 +36,6 @@ body{
     "3 4 5"
     "6 7 8";
 }  
-
-
 
 .h1{
     font-size: 100px;
@@ -152,6 +147,7 @@ body{
     margin-top: 100px;
     padding: 0;
 }
+
 .volver{
     border-radius: 10px;
     margin: 0 auto;
@@ -159,13 +155,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 40px;
+    width: 350px;
+    height: 60px;
     border: 1px solid red;
     color: white;
     background-color: red;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .volver:hover{
@@ -183,8 +179,8 @@ body{
 .botonera__a{
     background-color: #3498db; 
     color: white;
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -192,8 +188,8 @@ body{
     text-decoration: none;
     font-weight: bold; 
     text-decoration: none;
+    font-size: 20px;
 }
-
 
 .botonera__a:hover {
     background-color: rgb(219, 81, 81); 
@@ -205,6 +201,7 @@ body{
     text-align: center;
     margin: 0 auto;
     margin-top: 50px;
+    font-size: 70px;
 }
   
 .figurasX{
@@ -214,6 +211,7 @@ body{
     font-size: 160px;
     color: red;
 }
+
 .figurasO{
     display: flex;
     justify-content: center;

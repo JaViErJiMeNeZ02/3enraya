@@ -1,4 +1,4 @@
-let section = document.querySelector(".section"); // Cambiado para obtener un único elemento
+let section = document.querySelector(".section");
 let volver = document.getElementById("volver");
 let volver1 = document.getElementById("volver1");
 let ganador = document.getElementById("ganador");
@@ -51,12 +51,12 @@ function jugadas(primera, segunda, tercera, cuarta) {
 
     if (primera !== "" && primera === segunda && segunda === tercera && tercera === cuarta) {
         if (primera === "X" && turno === 2) {
-            section.style.display = "none"; // Aquí debe funcionar correctamente
+            section.style.display = "none"; 
             volver1.style.display = "none";
             ganador.textContent = "HA GANADO EL JUGADOR DE X";
             ganar = true;
         } else if (primera === "O" && turno === 1) {
-            section.style.display = "none"; // Aquí debe funcionar correctamente
+            section.style.display = "none"; 
             volver1.style.display = "none";
             ganador.textContent = "HA GANADO EL JUGADOR DE O";
             ganar = true;
@@ -66,7 +66,7 @@ function jugadas(primera, segunda, tercera, cuarta) {
 
         if (ganar) {
             for (let i = 0; i < section.length; i++) {
-                section[i].style.display = "none"; // Asegúrate que section es un NodeList
+                section[i].style.display = "none"; 
             }
             otra.style.display = "flex";
         }
@@ -115,7 +115,7 @@ function verificarEmpate() {
     }
 
     if (todasLlenas) {
-        section.style.display = "none"; // Asegúrate que section es un único elemento
+        section.style.display = "none"; 
         volver1.style.display = "none";
         ganador.textContent = "¡Es un empate!";
         ganador.style.display = "flex";

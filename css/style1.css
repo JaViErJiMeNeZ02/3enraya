@@ -11,7 +11,6 @@ body{
     height: 50%;
 }
 
-
 .section{
     display: grid;
     width: 900px;
@@ -24,9 +23,8 @@ body{
     "12 13 14 15";
 }  
 
-
-
 .h1{
+    font-size: 100px;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -132,6 +130,7 @@ body{
     grid: 12;
 
 }
+
 .caja13{
 
     border-top: 5px solid black;
@@ -139,6 +138,7 @@ body{
     grid: 13;
 
 }
+
 .caja14{
     
     border-top: 5px solid black;
@@ -146,6 +146,7 @@ body{
     grid: 14;
 
 }
+
 .caja15{
     
     border-top: 5px solid black;
@@ -153,27 +154,27 @@ body{
 
 }
 
-
 .div_volver{
     display: flex;
     flex-direction: column;
     margin-top: 100px;
     padding: 0;
 }
+
 .volver{
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 40px;
+    width: 350px;
+    height: 60px;
     border: 1px solid red;
     color: white;
     background-color: red;
     text-decoration: none;
-    font-size: 25px;
-    margin-top: 50px;
+    font-size: 30px;
 }
 
 .volver:hover{
@@ -181,13 +182,14 @@ body{
     background-color: rgb(117, 8, 8);
 
 }
+
 .ganador{
     display: none;
     justify-content: center;
     text-align: center;
     margin: 0 auto;
     margin-top: 50px;
-
+    font-size: 70px;
 }
 
 .figurasX{
@@ -197,6 +199,7 @@ body{
     font-size: 160px;
     color: red;
 }
+
 .figurasO{
     display: flex;
     justify-content: center;

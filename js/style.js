@@ -47,7 +47,7 @@ for (let i = 0; i < caja.length; i++) {
     });
 }
 
-//funcion de ganar que comprueba las jugadas y si hay alguna correcta se gana.
+
 function ganar() {
     let contenido0 = caja0.textContent;
     let contenido1 = caja1.textContent;
@@ -81,23 +81,14 @@ function jugadas(primera, segunda, tercera) {
             section.style.display = "none";
             volver1.style.display = "none";
             ganador.textContent = "HA GANADO EL JUGADOR X";
-            ganar = true;
-            puntosX++;
-            partidas++;
-            console.log(puntosX++);
-            console.log(partidas++);
-
+            ganar = true; 
 
         } else if (primera === "O" && turno === 1) {
             section.style.display = "none";
             volver1.style.display = "none";
             ganador.textContent = "HA GANADO EL JUGADOR O";
             ganar = true;
-            puntosY++;
-            partidas++;
-            console.log(puntosY++);
-            console.log(partidas++);
-
+            
         }
 
         ganador.style.display = "flex";
