@@ -1,8 +1,8 @@
-let section = document.getElementsByClassName("section");
+let section = document.querySelector(".section"); // Cambiado para obtener un único elemento
 let volver = document.getElementById("volver");
+let volver1 = document.getElementById("volver1");
 let ganador = document.getElementById("ganador");
 let otra = document.getElementById("otra");
-
 
 let caja0 = document.getElementById("caja0");
 let caja1 = document.getElementById("caja1");
@@ -20,93 +20,77 @@ let caja12 = document.getElementById("caja12");
 let caja13 = document.getElementById("caja13");
 let caja14 = document.getElementById("caja14");
 let caja15 = document.getElementById("caja15");
-
-
-
-
+let caja = document.querySelectorAll(".caja");
 
 let turno = 1;
 otra.style.display = "none";
 
-for (let i = 0; i < section.length; i++) {
-
-    section[i].addEventListener("click", (event) => {
+for (let i = 0; i < caja.length; i++) {
+    caja[i].addEventListener("click", (event) => {
+        if (event.target.textContent !== "") {
+            return;
+        }
         
-        if (event.target.nodeName === "DIV") {
-            if (event.target.style.backgroundColor !== "" && event.target.style.backgroundColor !== "white") {
-                return;
-            }
-            if (turno === 1) {
-                event.target.style.backgroundColor = "red";
-                turno = 2;
-            } else if (turno === 2) {
-                event.target.style.backgroundColor = "green";
-                turno = 1;
-            }
+        if (turno === 1) {
+            event.target.textContent = "X";
+            event.target.classList.add("figurasX");
+            turno = 2;
+        } else {
+            event.target.textContent = "O";
+            event.target.classList.add("figurasO");
+            turno = 1;
         }
 
-        ganar()
-
-
+        ganar();
+        verificarEmpate();
     });
-
-
-
+}
 
 function jugadas(primera, segunda, tercera, cuarta) {
     let ganar = false;
 
-    if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
-            primera === segunda && segunda === tercera && tercera === cuarta) {
-    
-            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)") && (tercera = "rgb(255,0,0)") && (cuarta = "rgb(255,0,0)") && turno === 2) {
-                
-                ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";
-                ganar = true;
+    if (primera !== "" && primera === segunda && segunda === tercera && tercera === cuarta) {
+        if (primera === "X" && turno === 2) {
+            section.style.display = "none"; // Aquí debe funcionar correctamente
+            volver1.style.display = "none";
+            ganador.textContent = "HA GANADO EL JUGADOR DE X";
+            ganar = true;
+        } else if (primera === "O" && turno === 1) {
+            section.style.display = "none"; // Aquí debe funcionar correctamente
+            volver1.style.display = "none";
+            ganador.textContent = "HA GANADO EL JUGADOR DE O";
+            ganar = true;
+        }
 
-            }else if(primera = "rgb(0,128,0)" && (segunda = "rgb(0,128,0)")
-                && (tercera = "rgb(0,128,0)") && turno === 1){
-                
-                ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
-                ganar = true;
+        ganador.style.display = "flex";
 
+        if (ganar) {
+            for (let i = 0; i < section.length; i++) {
+                section[i].style.display = "none"; // Asegúrate que section es un NodeList
             }
-
-            ganador.style.display = "flex";  
-    
-            if (ganar === true) {
-                for (let i = 0; i < section.length; i++) {
-                    section[i].style.display = "none";
-                    otra.style.display = "flex";
-
-                }
+            otra.style.display = "flex";
         }
-            return;
-        }
-
+        return;
     }
 }
 
-
-function ganar(){
-
-    let color0 = getComputedStyle(caja0).backgroundColor;
-    let color1 = getComputedStyle(caja1).backgroundColor;
-    let color2 = getComputedStyle(caja2).backgroundColor;
-    let color3 = getComputedStyle(caja3).backgroundColor;
-    let color4 = getComputedStyle(caja4).backgroundColor;
-    let color5 = getComputedStyle(caja5).backgroundColor;
-    let color6 = getComputedStyle(caja6).backgroundColor;
-    let color7 = getComputedStyle(caja7).backgroundColor;
-    let color8 = getComputedStyle(caja8).backgroundColor;
-    let color9 = getComputedStyle(caja9).backgroundColor;
-    let color10 = getComputedStyle(caja10).backgroundColor;
-    let color11 = getComputedStyle(caja11).backgroundColor;
-    let color12 = getComputedStyle(caja12).backgroundColor;
-    let color13 = getComputedStyle(caja13).backgroundColor;
-    let color14 = getComputedStyle(caja14).backgroundColor;
-    let color15 = getComputedStyle(caja15).backgroundColor;
-
+function ganar() {
+    let color0 = caja0.textContent;
+    let color1 = caja1.textContent;
+    let color2 = caja2.textContent;
+    let color3 = caja3.textContent;
+    let color4 = caja4.textContent;
+    let color5 = caja5.textContent;
+    let color6 = caja6.textContent;
+    let color7 = caja7.textContent;
+    let color8 = caja8.textContent;
+    let color9 = caja9.textContent;
+    let color10 = caja10.textContent;
+    let color11 = caja11.textContent;
+    let color12 = caja12.textContent;
+    let color13 = caja13.textContent;
+    let color14 = caja14.textContent;
+    let color15 = caja15.textContent;
 
     jugadas(color0, color1, color2, color3);
     jugadas(color4, color5, color6, color7);
@@ -118,7 +102,23 @@ function ganar(){
     jugadas(color3, color7, color11, color15);
     jugadas(color0, color5, color10, color15);
     jugadas(color3, color6, color9, color12);
-
-       
 }
 
+function verificarEmpate() {
+    let todasLlenas = true; 
+
+    for (let i = 0; i < caja.length; i++) {
+        if (caja[i].textContent === "") {
+            todasLlenas = false;
+            break;
+        }
+    }
+
+    if (todasLlenas) {
+        section.style.display = "none"; // Asegúrate que section es un único elemento
+        volver1.style.display = "none";
+        ganador.textContent = "¡Es un empate!";
+        ganador.style.display = "flex";
+        otra.style.display = "flex";
+    }
+}

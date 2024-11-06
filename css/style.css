@@ -27,11 +27,7 @@ body{
     margin-right: 200px;
 }
 
-.circulo{
-    border: 1px solid black;
-    width: 200px;
-    border-radius: 50%;
-}
+
 
 .section{
     display: grid;
@@ -47,8 +43,35 @@ body{
 
 
 .h1{
+    font-size: 100px;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.h2{
+    font-size: 40px;
+    text-align: center;
+}
+.p{
+    font-size: 35px;
+    text-align: center;
+}
+
+.cargando{
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid black;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 200px;
+  animation: cargando 2s linear infinite;
+}
+
+@keyframes cargando{
+    0%{
+        transform: rotate(360deg);
+    }
 }
 
 .caja{
@@ -161,8 +184,8 @@ body{
     background-color: #3498db; 
     color: white;
     width: 250px;
-    height: 40px;
-    border-radius: 20px;
+    height: 250px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,6 +193,7 @@ body{
     font-weight: bold; 
     text-decoration: none;
 }
+
 
 .botonera__a:hover {
     background-color: rgb(219, 81, 81); 
@@ -182,9 +206,18 @@ body{
     margin: 0 auto;
     margin-top: 50px;
 }
-
-.activo {
-    background-color: #4CAF50; 
-    color: white; 
-  }
   
+.figurasX{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 160px;
+    color: red;
+}
+.figurasO{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 160px;
+    color: green;
+}

@@ -1,5 +1,6 @@
-let section = document.getElementsByClassName("section");
+let section = document.getElementById("section");
 let volver = document.getElementById("volver");
+let volver1 = document.getElementById("volver1");
 let ganador = document.getElementById("ganador");
 let otra = document.getElementById("otra");
 
@@ -12,101 +13,120 @@ let caja5 = document.getElementById("caja5");
 let caja6 = document.getElementById("caja6");
 let caja7 = document.getElementById("caja7");
 let caja8 = document.getElementById("caja8");
-
-
+let caja = document.querySelectorAll(".caja");
 
 let turno = 1;
 otra.style.display = "none";
+let partidas = 0;
+let puntosX = 0;
+let puntosY = 0;
 
-for (let i = 0; i < section.length; i++) {
     
-    section[i].addEventListener("click", (event) => {
-        if (event.target.nodeName === "DIV") {
-            if (event.target.style.backgroundColor !== "" && event.target.style.backgroundColor !== "white") {
-                return;
-            }
 
-            if (turno === 1) {
-                event.target.style.backgroundColor = "red";
-                turno = 2;
-            } else {
-                event.target.style.backgroundColor = "green";
-                turno = 1;
-            }
+for (let i = 0; i < caja.length; i++) {
+    caja[i].addEventListener("click", (event) => {
+        if (event.target.textContent !== "") {
+            return;
+        }
 
+        if (turno === 1) {
+            event.target.textContent = "X";
+            event.target.classList.add("figurasX");
+            turno = 2;
+            
+        } else {
+            event.target.textContent = "O";
+            event.target.classList.add("figurasO");
+            turno = 1;
         }
 
         ganar();
+        verificarEmpate();
 
         
     });
+}
 
+//funcion de ganar que comprueba las jugadas y si hay alguna correcta se gana.
+function ganar() {
+    let contenido0 = caja0.textContent;
+    let contenido1 = caja1.textContent;
+    let contenido2 = caja2.textContent;
+    let contenido3 = caja3.textContent;
+    let contenido4 = caja4.textContent;
+    let contenido5 = caja5.textContent;
+    let contenido6 = caja6.textContent;
+    let contenido7 = caja7.textContent;
+    let contenido8 = caja8.textContent;
 
-
+    if (
+        jugadas(contenido0, contenido1, contenido2) || 
+        jugadas(contenido3, contenido4, contenido5) || 
+        jugadas(contenido6, contenido7, contenido8) || 
+        jugadas(contenido0, contenido3, contenido6) || 
+        jugadas(contenido1, contenido4, contenido7) || 
+        jugadas(contenido2, contenido5, contenido8) || 
+        jugadas(contenido0, contenido4, contenido8) || 
+        jugadas(contenido2, contenido4, contenido6)
+    ) {
+        return;
+    }
+}
 
 function jugadas(primera, segunda, tercera) {
     let ganar = false;
 
-        if (primera !== "rgba(0, 0, 0, 0)" && primera !== "white" && 
-            primera === segunda && segunda === tercera) {
-    
-            if (primera = "rgb(255,0,0)" && (segunda = "rgb(255,0,0)")
-            && (tercera = "rgb(255,0,0)") && turno === 2) {
-                
-                ganador.textContent = "HA GANADO EL JUGADOR DE ROJO";  
-                ganar = true;
+    if (primera !== "" && primera === segunda && segunda === tercera) {
+        if (primera === "X" && turno === 2) {
+            section.style.display = "none";
+            volver1.style.display = "none";
+            ganador.textContent = "HA GANADO EL JUGADOR X";
+            ganar = true;
+            puntosX++;
+            partidas++;
+            console.log(puntosX++);
+            console.log(partidas++);
 
-            }else if(primera = "rgb(0,128,0)" && (segunda = "rgb(0,128,0)")
-            && (tercera = "rgb(0,128,0)") && turno === 1){
-                
-                ganador.textContent = "HA GANADO EL JUGADOR DE VERDE";
-                ganar = true;
 
-            }
-
-            
-            ganador.style.display = "flex";  
-            
-
-            if (ganar === true) {
-                for (let i = 0; i < section.length; i++) {
-                    section[i].style.display = "none";
-                    otra.style.display = "flex";
-
-                }
+        } else if (primera === "O" && turno === 1) {
+            section.style.display = "none";
+            volver1.style.display = "none";
+            ganador.textContent = "HA GANADO EL JUGADOR O";
+            ganar = true;
+            puntosY++;
+            partidas++;
+            console.log(puntosY++);
+            console.log(partidas++);
 
         }
-        return;
 
+        ganador.style.display = "flex";
+
+        if (ganar) {
+            otra.style.display = "flex";
+        }
+        return ganar;
     }
-}
-}
-
-
-function ganar(){
-
-    let color0 = getComputedStyle(caja0).backgroundColor;
-    let color1 = getComputedStyle(caja1).backgroundColor;
-    let color2 = getComputedStyle(caja2).backgroundColor;
-    let color3 = getComputedStyle(caja3).backgroundColor;
-    let color4 = getComputedStyle(caja4).backgroundColor;
-    let color5 = getComputedStyle(caja5).backgroundColor;
-    let color6 = getComputedStyle(caja6).backgroundColor;
-    let color7 = getComputedStyle(caja7).backgroundColor;
-    let color8 = getComputedStyle(caja8).backgroundColor;
-
-    jugadas(color0, color1, color2);
-    jugadas(color3, color4, color5);
-    jugadas(color6, color7, color8);
-    jugadas(color0, color3, color6);
-    jugadas(color1, color4, color7);
-    jugadas(color2, color5, color8);
-    jugadas(color0, color4, color8);
-    jugadas(color2, color4, color6);
-    
- 
-
+    return false;
 }
 
-    
+function verificarEmpate() {
+    let todasLlenas = true; 
+
+    for (let i = 0; i < caja.length; i++) {
+        if (caja[i].textContent === "") {
+            todasLlenas = false;
+            break;
+        }
+    }
+
+    if (todasLlenas) {
+            section.style.display = "none";
+            volver1.style.display = "none";
+            ganador.textContent = "¡Es un empate!";
+            ganador.style.display = "flex";
+            otra.style.display = "flex";
+            
+        }
+    }
 
